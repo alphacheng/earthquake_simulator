@@ -8,7 +8,7 @@ This project was done as part of my University course. The aim is to simulate th
 
 * Model Reponse with Multiple TMD - There are multiple resonant frequencies in the model (3 without any damping). Would it make sense to add a tuned mass damper for each frequency? 
 
-* Optimised Number and Location for Multiple TMD - It seemed that the more dampers added, the more stable the system becomes. This program aims to see what is the optimal number of dampers, and on which floor should they be placed.
+*Optimised Number and Location for Multiple TMD - It seemed that the more dampers added, the more stable the system becomes. This program aims to see what is the optimal number of dampers, and on which floor should they be placed.
 
 
 Please email me at jg854@cam.ac.uk for any questions.
