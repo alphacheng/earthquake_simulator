@@ -37,13 +37,12 @@ G = np.identity(3, dtype=np.complex)
 G[0] = [2j, -1j, 0]
 G[1] = [-1j, 2j, -1j]
 G[2] = [0, -1j, 1j]
-G = 5 * G
+G = 15* G
 M_inv = np.linalg.inv(M)
 
+# this vector simulates only moving the ground floor
 vect = np.zeros((3, 1))
 vect[0] = 1
-vect[1] = 0
-vect[2] = 0
 
 # V stores the square of the natural frequencies, D stores the eigenvectors (the relative amplitude between each floor)
 V, D = (sp.eig(K, M))
@@ -54,12 +53,19 @@ print("Natural angular frequencies are: ",V)
 
 for i in range(3):
     amplitude = []
+    phase = []
     amplitude_log = []
     frequencies = np.linspace(0, 130, 1001)
     for f in frequencies:
         B = K + (f*G)-((f**2)*M)
         B_inv = (np.linalg.inv(B))
-        amplitude.append((np.absolute(B_inv.dot(vect)[i])))
+        amplitude.append(np.absolute(B_inv.dot(vect)[i])[0])
+        phase.append((np.angle(B_inv.dot(vect)[i])*180/np.pi)[0])
+    print(amplitude)
+    print(phase) # phase is in degrees
+
+
+
     if (abs(max(amplitude))) > (abs(min(amplitude))):   # prints the largest magnitude of amplitude for each floor
         max_amp_on_floor.append(abs(max(amplitude)))
     else:
@@ -71,6 +77,8 @@ for i in range(3):
 
 print("Maximum amplitude is ", max(max_amp_on_floor))
 print("This occurs on floor: ", max_amp_on_floor.index(max(max_amp_on_floor))+1)
+
+
 
 
 
