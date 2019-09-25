@@ -47,7 +47,7 @@
         
     <h1 style = "text-align: center" >
       <font color ="rgb(50,50,50)">
-          Model Building under Earthquake Simulator
+          Simulation of a Building under an Earthquake
 
       </font>
       
@@ -59,15 +59,7 @@
     <script src="with.js"></script>
     <div class =  "info">
       <p style="text-align: center">
-        This simulation animates the situation of an earthquake on a building.
-        It also shows the massive improvement on the stability of a building when including a tuned mass damper (TMD)
-        . Notice how the damped resonance the frequency response without a damper. The tuned mass damper "absorbs" the driving frequency 
-        and prevents the rest of the building oscillating at such large amplitudes. In this animation, the damper is a pendulum,
-        which is similar to the model used in the Taipei 101 tower. There is a very subtle difference in putting the damper on 
-        each floor. This can be seen when increasing the emphasis_factor variable in the .js file. So putting a damper on a 
-        certain floor can actually improve the stability of a building. This is one of the factors that affects choosing where 
-        a swimming pool is placed in a hotel! (Damper attached to floor: 0 means no damper at all). 
-       
+        This simulation aims to show the drastic improvement on the stability of a building when including a tuned mass damper (TMD). Notice how the damped resonance is much more suppressed than the resonance without a damper. Without a tuned mass damper, there are three resonant frequencies (amplitudes of resonance have been enhanced to make them more obvious). The fundamental frequency (which occurs around 3Hz gives the largest amplitudes, however, there are higher frequencies which give different mode shapes. When adding the TMD, the building is a lot more stable, and it looks like that TMD "absorbs" the driving frequency and prevents the rest of the building oscillating at such large amplitudes. In this animation, the damper is a pendulum, which is similar to the model used in the Taipei 101 tower. There is a very subtle difference in putting the damper on each floor. This can be seen when increasing the emphasis_factor variable in the .js file. So putting a damper on a certain floor can improve the stability of a building. This is one of the factors that affect choosing where a swimming pool is placed in a hotel! (Damper attached to floor: 0 means no damper at all). The animation is played at a quarter of the speed of real-time to show the effects more clearly.
       </p>
 
     </div>
