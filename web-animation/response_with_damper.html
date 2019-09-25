@@ -53,15 +53,20 @@
       
     </h1>
     <script type="text/javascript" src="data.json"></script>
-    <script src="sketch.js"></script>
+    <script type="text/javascript" src="floor_one.json"></script>
+    <script type="text/javascript" src="floor_two.json"></script>
+    <script type="text/javascript" src="floor_three.json"></script>
+    <script src="with.js"></script>
     <div class =  "info">
       <p style="text-align: center">
-        This simulation uses data extracted from the python file. The data encapsulates the frequency response
-        (both phase and magnitude). The frequency range is between 0 and 20Hz, which is similar to the range of an
-        actual earthquake. Try and find the resonant frequency. As this is a 3-body problem, there are actually 
-        three resonant frequencies. However, the fundamental resonant frequency is much more obvious than the higher
-        harmonics. There have been adaptations to the model to show a more obvious progression of a resonant frequency.
-        The model is also being played at a quarter of the actual frequency to show the effects more clearly.
+        This simulation animates the situation of an earthquake on a building.
+        It also shows the massive improvement on the stability of a building when including a tuned mass damper (TMD)
+        . Notice how the damped resonance the frequency response without a damper. The tuned mass damper "absorbs" the driving frequency 
+        and prevents the rest of the building oscillating at such large amplitudes. In this animation, the damper is a pendulum,
+        which is similar to the model used in the Taipei 101 tower. There is a very subtle difference in putting the damper on 
+        each floor. This can be seen when increasing the emphasis_factor variable in the .js file. So putting a damper on a 
+        certain floor can actually improve the stability of a building. This is one of the factors that affects choosing where 
+        a swimming pool is placed in a hotel! (Damper attached to floor: 0 means no damper at all). 
        
       </p>
 
@@ -71,6 +76,11 @@
         <input step = "0.01" type="range" min="0" max="20" value="0" class="slider" id="myRange">
         <p>Frequency: <span id="demo"></span> Hz</p>
     </div>
+
+    <div  class="slidecontainer">
+      <input step = "1" type="range" min="0" max="3" value="0" class="slider" id="whichfloor">
+      <p>Damper is attached to floor: <span id="floordemo"></span></p>
+  </div>
     
     <script>
         var slider = document.getElementById("myRange");
@@ -79,6 +89,12 @@
         
         slider.oninput = function() {
           output.innerHTML = this.value;
+        }
+
+        var floorslider = document.getElementById("whichfloor");
+        var flooroutput= document.getElementById("floordemo");
+        floorslider.oninput = function() {
+          flooroutput.innerHTML = this.value;
         }
     </script>
 
